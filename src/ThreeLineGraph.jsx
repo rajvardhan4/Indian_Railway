@@ -38,6 +38,7 @@ const ThreeLineGraph = () => {
       },
       options: {
         responsive: true,
+        maintainAspectRatio: false, // Allows the chart to fill the container
         plugins: {
           legend: {
             position: "top",
@@ -58,7 +59,8 @@ const ThreeLineGraph = () => {
             beginAtZero: true,
           },
         },
-      },
+      }
+      
     });
 
     return () => {
@@ -70,9 +72,10 @@ const ThreeLineGraph = () => {
   }, []);
 
   return (
-    <div className="graph-container">
-      <canvas id="threeLineGraph"></canvas>
-    </div>
+<div className="graph-container">
+  <canvas id="threeLineGraph" style={{ width: "100%", height: "400px" }}></canvas>
+</div>
+
   );
 };
 

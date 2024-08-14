@@ -1,110 +1,69 @@
-// import React from 'react';
-
-// const ProgressBar = () => {
- 
-
-//   return (
-//     <>
-
-//     </>
-//   );
-// };
-
-// export default ProgressBar;
-
 import React, { useState } from 'react';
-import './WebDesignProcess.css'; // Make sure to include your CSS styles
 
-const WebDesignProcess = () => {
-  const [completedSteps, setCompletedSteps] = useState(0);
+const ProgressBar = () => {
+  const [step, setStep] = useState('step1');
 
-  const handleStepClick = (stepNumber) => {
-    if (stepNumber > completedSteps) {
-      setCompletedSteps(stepNumber);
+  const next = () => {
+    if (step === 'step1') {
+      setStep('step2');
+    } else if (step === 'step2') {
+      setStep('step3');
+    } else if (step === 'step3') {
+      setStep('step4');
+    } else if (step === 'step4') {
+      setStep('complete');
     }
   };
 
-  return (
-    <div className="cont">
-      <h1 className="text-center">WEB DESIGN PROCESS</h1>
-      <progress
-        id="nprogress-bar"
-        value={completedSteps * 34}
-        max="100"
-      ></progress>
-      <div id="step">
-        <span
-          className={`first ${completedSteps >= 1 ? 'border-change' : ''}`}
-          onClick={() => handleStepClick(1)}
-        >
-          <i className="fa fa-flask"></i>
-        </span>
-        <span
-          className={`second ${completedSteps >= 2 ? 'border-change' : ''}`}
-          onClick={() => handleStepClick(2)}
-        >
-          <i className="fa fa-paint-brush"></i>
-        </span>
-        <span
-          className={`third ${completedSteps >= 3 ? 'border-change' : ''}`}
-          onClick={() => handleStepClick(3)}
-        >
-          <i className="fa fa-code"></i>
-        </span>
-        <span
-          className={`fourth ${completedSteps >= 4 ? 'border-change' : ''}`}
-          onClick={() => handleStepClick(4)}
-        >
-          <i className="fa fa-rocket"></i>
-        </span>
-      </div>
+  const getStepClasses = (currentStep) => {
+    let classes = 'flex items-center justify-center w-9 h-9 rounded-full border-2 border-green-700 text-white font-bold';
+    if (step === currentStep) {
+      classes += ' bg-green-700 animate-pulse';
+    } else if (step === 'complete' && currentStep !== 'complete') {
+      classes += ' bg-gray-300 border-gray-300 text-gray-500';
+    } else {
+      classes += ' bg-green-700 border-green-700';
+    }
+    return classes;
+  };
 
-      <div className="row">
-        {completedSteps === 1 && (
-          <div id="first">
-            <h2>Plan & Research</h2>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
-            </p>
+  const getBarClasses = (currentStep) => {
+    return `absolute inset-0 bg-green-700 transition-transform duration-500 ${step === currentStep ? 'translate-x-full' : 'translate-x-0'}`;
+  };
+
+  return (
+    <div className="container mx-auto my-8">
+      <ul className="flex justify-between items-center">
+        <li className={`relative flex-1 text-center ${getStepClasses('step1')}`}>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className={`progress-bar ${getBarClasses('step1')}`}></div>
           </div>
-        )}
-        {completedSteps === 2 && (
-          <div id="second">
-            <h2>Design</h2>
-            <p>
-              There are many variations of passages of Lorem Ipsum available,
-              but the majority have suffered alteration in some form, by
-              injected humour, or randomised words which don't look even
-              slightly believable.
-            </p>
+          Start
+        </li>
+        <li className={`relative flex-1 text-center ${getStepClasses('step2')}`}>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className={`progress-bar ${getBarClasses('step2')}`}></div>
           </div>
-        )}
-        {completedSteps === 3 && (
-          <div id="third">
-            <h2>Development</h2>
-            <p>
-              Nullam porttitor pretium dolor vitae ullamcorper. Suspendisse
-              blandit ipsum et condimentum efficitur.
-            </p>
+          First Step
+        </li>
+        <li className={`relative flex-1 text-center ${getStepClasses('step3')}`}>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className={`progress-bar ${getBarClasses('step3')}`}></div>
           </div>
-        )}
-        {completedSteps === 4 && (
-          <div id="fourth">
-            <h2>Launch</h2>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
-            </p>
+          Middle Stage
+        </li>
+        <li className={`relative flex-1 text-center ${getStepClasses('step4')}`}>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className={`progress-bar ${getBarClasses('step4')}`}></div>
           </div>
-        )}
-      </div>
+          Finish
+        </li>
+      </ul>
+      <button onClick={next} className="mt-4 px-4 py-2 bg-green-700 text-white font-bold rounded">
+        Next Step
+      </button>
     </div>
   );
 };
 
-export default WebDesignProcess;
+export default ProgressBar;

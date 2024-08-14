@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { TbCloudDownload } from "react-icons/tb";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { useDropzone } from "react-dropzone";
+import homeicon from  "./assets/homeicon.svg"
 
 
 
@@ -28,6 +29,7 @@ const Transcription = () => {
   };
 
 
+
   const steps = [
     {
       label: "Upload Audio",
@@ -43,7 +45,7 @@ const Transcription = () => {
     {
       label: "Human Extracted",
       icon: (
-        <img src={icon2} alt="Human" className="icon-image h-[100%] w-[100%]" />
+        <img src={icon2} alt="Human" className="icon-image h-[100%] w-[100%] " />
       ),
       route: "/Human", // Route for "Human Extracted"
     },
@@ -81,6 +83,8 @@ const Transcription = () => {
       route: "/analysis", // Route for "Analysis"
     },
   ];
+
+
 
 
 
@@ -127,10 +131,23 @@ const Transcription = () => {
     }
   };
 
-  const progressWidth = (step / (steps.length - 1)) * 100;
+  const progressWidth = (step / (steps.length - 1)) * 100; 
+ 
+
   return (
     <>
       <div className="main-can flex flex-col  items-center min-h-screen bg-[#FbFFF1] p-4 font-roboto">
+    {/* home btn */}
+    <div className="flex w-[100%] justify-end">
+  <div className="flex justify-evenly w-[182px] h-[44px] bg-[#FFE9BE] rounded-sm home-btn font-roboto font-medium">
+    <Link to="/">
+      <button className="text-[21px] p-1 flex justify-evenly mt-1">
+      <img src={homeicon} alt="homeicon" className="w-[25px]" />
+        <span className="ms-3">Back To Home</span>
+      </button>
+    </Link>
+  </div>
+</div>
       <div id="container" className="container">
       <div className="progress-bar">
         <ul className="progress">
@@ -210,17 +227,17 @@ const Transcription = () => {
             </thead>
             <tbody>
               <tr  className="bg-white">
-                <td className="px-4 py-2 border font-roboto font-medium text-center">2024-08-01</td>
-                <td className="px-4 py-2 border font-roboto font-medium text-center">North</td>
-                <td className="px-4 py-2 border font-roboto font-medium text-center">12345</td>
-                <td className="px-4 py-2 border font-roboto font-medium text-center">67890</td>
-                <td className="px-4 py-2 border font-roboto font-medium text-center">Station A</td>
-                <td className="px-4 py-2 border font-roboto font-medium text-center">Station B</td>
-                <td className="px-4 py-2 border font-roboto font-medium text-center">1</td>
-                <td className="px-4 py-2 border font-roboto font-medium text-center">LP001</td>
-                <td className="px-4 py-2 border font-roboto font-medium text-center">AP001</td>
-                <td className="px-4 py-2 border font-roboto font-medium text-center">10:00 AM</td>
-                <td className="px-4 py-2 border font-roboto font-medium text-center">02:00 hrs</td>
+                <td className="px-4 py-2 border font-roboto font-medium text-center w-[119px]">2024-08-01</td>
+                <td className="px-4 py-2 border font-roboto font-medium text-center w-[119px]">North</td>
+                <td className="px-4 py-2 border font-roboto font-medium text-center w-[119px]">12345</td>
+                <td className="px-4 py-2 border font-roboto font-medium text-center w-[119px]">67890</td>
+                <td className="px-4 py-2 border font-roboto font-medium text-center w-[119px]">Station A</td>
+                <td className="px-4 py-2 border font-roboto font-medium text-center w-[119px]">Station B</td>
+                <td className="px-4 py-2 border font-roboto font-medium text-center w-[119px]">1</td>
+                <td className="px-4 py-2 border font-roboto font-medium text-center w-[119px]">LP001</td>
+                <td className="px-4 py-2 border font-roboto font-medium text-center w-[119px]">AP001</td>
+                <td className="px-4 py-2 border font-roboto font-medium text-center w-[119px]">10:00 AM</td>
+                <td className="px-4 py-2 border font-roboto font-medium text-center w-[119px]">02:00 hrs</td>
                 <td className="px-4 py-2 border font-roboto font-medium text-center text-green-500">
                   Successfully Done
                 </td>

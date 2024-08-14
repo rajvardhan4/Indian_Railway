@@ -31,7 +31,7 @@ function Home() {
       {/* Main Content */}
       <div className="flex flex-col md:flex-row mt-[2%]">
         {/* Sidebar */}
-        <aside className="text-white bg-[#146696] md:w-[170px] min-w-max h-auto md:h-[883px] rounded-tr-[25px] mb-4 md:mb-0">
+        <aside className="text-white bg-[#146696] md:w-[170px] min-w-max h-auto md:h-[583px] rounded-tr-[25px] mb-4 md:mb-0">
           {/* Content here */}
         </aside>
         <main className="flex flex-col flex-grow p-9">

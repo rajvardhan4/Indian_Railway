@@ -104,7 +104,22 @@
   border-radius: 50%;
   color: #000;
 }
+.home-btn{
+  box-shadow: 0px 1px 2px 0px #00000040;
+  margin-top: 10px;
 
+}
+.graph-container {
+  width: 90%;
+  height: 500px; /* Adjust height as needed */
+  position: relative;
+  margin: auto;
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
 
 /*👉
 .progress-bar-container {

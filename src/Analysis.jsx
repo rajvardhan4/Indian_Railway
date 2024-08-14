@@ -4,9 +4,10 @@ import icon2 from "./assets/icon2.svg";
 import icon3 from "./assets/icon3.svg";
 import icon4 from "./assets/icon4.svg";
 import icon5 from "./assets/icon5.svg";
-import { useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import ThreeLineGraph from "./ThreeLineGraph";
 import { useDropzone } from "react-dropzone";
+import homeicon from  "./assets/homeicon.svg"
 
 
 const Analysis = () => {
@@ -26,6 +27,7 @@ const Analysis = () => {
   };
 
 
+
   const steps = [
     {
       label: "Upload Audio",
@@ -41,7 +43,7 @@ const Analysis = () => {
     {
       label: "Human Extracted",
       icon: (
-        <img src={icon2} alt="Human" className="icon-image h-[100%] w-[100%]" />
+        <img src={icon2} alt="Human" className="icon-image h-[100%] w-[100%] " />
       ),
       route: "/Human", // Route for "Human Extracted"
     },
@@ -79,6 +81,7 @@ const Analysis = () => {
       route: "/analysis", // Route for "Analysis"
     },
   ];
+
 
 
 
@@ -122,10 +125,11 @@ const Analysis = () => {
 
   const handleIconClick = (index) => {
     if (index <= step || progress === 100) {
-      setStep(index); // Update step to the index of the clicked icon
+      setStep(index); // Update the step to the index of the clicked icon
       navigate(steps[index].route); // Navigate to the corresponding route
     }
   };
+  
   
 
   const progressWidth = (step / (steps.length - 1)) * 100;
@@ -133,6 +137,17 @@ const Analysis = () => {
   return (
     <>
       <div className="main-can flex flex-col  items-center min-h-screen bg-[#FbFFF1] p-4 font-roboto">
+       {/* home btn */}
+<div className="flex w-[100%] justify-end">
+  <div className="flex justify-evenly w-[182px] h-[44px] bg-[#FFE9BE] rounded-sm home-btn font-roboto font-medium">
+    <Link to="/">
+      <button className="text-[21px] p-1 flex justify-evenly mt-1">
+      <img src={homeicon} alt="homeicon" className="w-[25px]" />
+        <span className="ms-3">Back To Home</span>
+      </button>
+    </Link>
+  </div>
+</div>
       <div id="container" className="container">
       <div className="progress-bar">
         <ul className="progress">
@@ -140,7 +155,7 @@ const Analysis = () => {
             <li
               key={index}
               className={`step ${index <= step ? "active" : ""}`}
-              onClick={() => handleIconClick(stepItem.route)}
+              onClick={() => handleIconClick(index)}
             >
               <div className="top-text">
                 <div className={`label ${index === step ? "bg-yellow" : ""}`}>
@@ -174,12 +189,12 @@ const Analysis = () => {
             <h3 className="font-bold text-lg">Analysis Details</h3>
             <div className="font-semibold mt-2">
               <ul className="flex space-x-4 text-sm">
-                <li>Date: 2024-08-01</li>
-                <li>Train No: 12345</li>
-                <li>Section: North</li>
-                <li>From: Station A</li>
-                <li>To: Station B</li>
-                <li>Total Time: 02:00 hrs</li>
+                <li>Date: <span className="font-normal">2024-08-01</span></li>
+                <li>Train No: <span  className="font-normal"> 1234</span></li>
+                <li>Section: <span  className="font-normal">Nort</span></li>
+                <li>From <span  className="font-normal"> Station A</span></li>
+                <li>To: <span  className="font-normal">Station B</span></li>
+                <li>Total Time: <span  className="font-normal">02:00 hrs</span></li>
               </ul>
             </div>
           </div>

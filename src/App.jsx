@@ -12,7 +12,7 @@ import Transcription from "./Transcription";
 import Analysis from "./Analysis";
 import ThreeLineGraph from "./ThreeLineGraph";
 
-// import ProgressBar from "./ProgressBar";
+import ProgressBar from "./ProgressBar";
 // Define fake data
 const Railway_Data = [
   {
@@ -73,7 +73,7 @@ function App() {
         <Route path="/All" element={<All data={Railway_Data} />} />
         <Route path="/Latest" element={<Latest/>} />
         <Route path="/Human" element={<Human/>} />
-        {/* <Route path="/ProgressBar" element={<ProgressBar/>} /> */}
+        <Route path="/ProgressBar" element={<ProgressBar/>} />
         <Route path="/Denoise" element={<Denoise/>} />
         <Route path="/Analysis" element={<Analysis/>} />
         <Route path="/Transcription" element={<Transcription/>} />

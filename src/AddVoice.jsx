@@ -6,7 +6,7 @@ import icon3 from "./assets/icon3.svg";
 import icon4 from "./assets/icon4.svg";
 import icon5 from "./assets/icon5.svg";
 import { Link, useNavigate } from "react-router-dom";
-
+import homeicon from  "./assets/homeicon.svg"
 
 function AddVoice() {
   const [files, setFiles] = useState([]);
@@ -14,7 +14,6 @@ function AddVoice() {
   const [step, setStep] = useState(0); // Set initial step to "Human Extracted"
   const [progress, setProgress] = useState(0);
   const navigate = useNavigate();
-
   const onDrop = (acceptedFiles) => {
     setFiles(acceptedFiles);
   };
@@ -131,6 +130,20 @@ function AddVoice() {
   return (
     <>
       <div className="main-can flex flex-col justify-center items-center min-h-screen bg-[#FbFFF1] p-4 font-roboto">
+      
+    {/* home btn */}
+<div className="flex w-[100%] justify-end">
+  <div className="flex justify-evenly w-[182px] h-[44px] bg-[#FFE9BE] rounded-sm home-btn font-roboto font-medium">
+    <Link to="/">
+      <button className="text-[21px] p-1 flex justify-evenly mt-1">
+      <img src={homeicon} alt="homeicon" className="w-[25px]" />
+        <span className="ms-3">Back To Home</span>
+      </button>
+    </Link>
+  </div>
+</div>
+
+      
       <div id="container" className="container">
       <div className="progress-bar">
         <ul className="progress">

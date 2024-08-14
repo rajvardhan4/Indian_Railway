@@ -10,6 +10,7 @@ import { useDropzone } from "react-dropzone";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import AddVoice from "./AddVoice";
 import Denoise from "./Denoise";
+import homeicon from  "./assets/homeicon.svg"
 
 function Human() {
   const [startProgress, setStartProgress] = useState(false);
@@ -43,7 +44,7 @@ function Human() {
     {
       label: "Human Extracted",
       icon: (
-        <img src={icon2} alt="Human" className="icon-image h-[100%] w-[100%]" />
+        <img src={icon2} alt="Human" className="icon-image h-[100%] w-[100%] " />
       ),
       route: "/Human", // Route for "Human Extracted"
     },
@@ -132,6 +133,17 @@ function Human() {
 
   return (
     <div className="main-can flex flex-col items-center min-h-screen bg-[#FbFFF1] p-4 font-roboto">
+    {/* home btn */}
+    <div className="flex w-[100%] justify-end">
+  <div className="flex justify-evenly w-[182px] h-[44px] bg-[#FFE9BE] rounded-sm home-btn font-roboto font-medium">
+    <Link to="/">
+      <button className="text-[21px] p-1 flex justify-evenly mt-1">
+      <img src={homeicon} alt="homeicon" className="w-[25px]" />
+        <span className="ms-3">Back To Home</span>
+      </button>
+    </Link>
+  </div>
+</div>
    <div id="container" className="container">
       <div className="progress-bar">
         <ul className="progress">
@@ -211,40 +223,40 @@ function Human() {
           </thead>
           <tbody>
             <tr className="bg-white">
-              <td className="px-4 py-2 border font-roboto font-medium text-center">
+              <td className="px-4 py-2 border font-roboto font-medium w-[117px] text-center">
                 2024-08-01
               </td>
-              <td className="px-4 py-2 border font-roboto font-medium text-center">
+              <td className="px-4 py-2 border font-roboto font-medium w-[117px] text-center">
                 North
               </td>
-              <td className="px-4 py-2 border font-roboto font-medium text-center">
+              <td className="px-4 py-2 border font-roboto font-medium w-[117px] text-center">
                 12345
               </td>
-              <td className="px-4 py-2 border font-roboto font-medium text-center">
+              <td className="px-4 py-2 border font-roboto font-medium w-[117px] text-center">
                 67890
               </td>
-              <td className="px-4 py-2 border font-roboto font-medium text-center">
+              <td className="px-4 py-2 border font-roboto font-medium w-[117px] text-center">
                 Station A
               </td>
-              <td className="px-4 py-2 border font-roboto font-medium text-center">
+              <td className="px-4 py-2 border font-roboto font-medium w-[117px] text-center">
                 Station B
               </td>
-              <td className="px-4 py-2 border font-roboto font-medium text-center">
+              <td className="px-4 py-2 border font-roboto font-medium w-[117px] text-center">
                 1
               </td>
-              <td className="px-4 py-2 border font-roboto font-medium text-center">
+              <td className="px-4 py-2 border font-roboto font-medium w-[117px] text-center">
                 LP001
               </td>
-              <td className="px-4 py-2 border font-roboto font-medium text-center">
+              <td className="px-4 py-2 border font-roboto font-medium w-[117px] text-center">
                 AP001
               </td>
-              <td className="px-4 py-2 border font-roboto font-medium text-center">
+              <td className="px-4 py-2 border font-roboto font-medium w-[117px] text-center">
                 12:00 PM
               </td>
-              <td className="px-4 py-2 border font-roboto font-medium text-center">
+              <td className="px-4 py-2 border font-roboto font-medium w-[117px] text-center">
                 3 Hours
               </td>
-              <td className="px-4 py-2 border font-roboto font-medium text-center text-[#FFC000]">
+              <td className="px-4 py-2 border font-roboto font-medium w-[117px] text-center text-[#FFC000]">
               In Process
               </td>
             </tr>
